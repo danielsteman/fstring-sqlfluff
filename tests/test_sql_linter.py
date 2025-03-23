@@ -9,10 +9,14 @@ def linter():
 
 def test_lint_sql(linter):
     sql_code = """
-    SELECT  * FROM my_table
-    WHERE id = 1
+SELECT
+    a,
+    b
+FROM my_table
+WHERE id = 1 LIMIT 10
     """
     violations = linter.lint_sql(sql_code)
+    print(violations)
     assert isinstance(violations, list)
     for v in violations:
         assert isinstance(v, dict)

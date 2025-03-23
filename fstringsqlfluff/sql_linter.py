@@ -16,5 +16,6 @@ class SQLLinter:
             }
             for v in result.get_violations()
         ]
+        fixed_sql_code = result.fix_string()
+        print(fixed_sql_code)
         return violations
-
